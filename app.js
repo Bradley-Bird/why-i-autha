@@ -20,7 +20,7 @@ signUpForm.addEventListener('submit', async (e) => {
 
 signInForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log(signInEmail.value, signInPassword.value);
+    // console.log(signInEmail.value, signInPassword.value);
     await signInUser(signInEmail.value, signInPassword.value);
 
     redirectIfLoggedIn();

@@ -12,11 +12,13 @@ export async function getUser() {
 export async function signupUser(email, password) {
     const resp = await client.auth.signUp({ email, password });
     // console.log('signUpUser', resp);
+    return resp;
 }
 
 export async function signInUser(email, password) {
     const { user, session, error } = await client.auth.signIn({ email, password });
     // console.log('user', user, 'session', session, 'error', error);
+    return user, session, error;
 }
 
 export async function checkAuth() {
@@ -24,6 +26,7 @@ export async function checkAuth() {
     if (!user) {
         location.replace('/');
         // console.log(user);
+        return user;
     }
 }
 
