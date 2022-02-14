@@ -19,7 +19,13 @@ export async function signInUser(email, password) {
     console.log('user', user, 'session', session, 'error', error);
 }
 
-export async function checkAuth() {}
+export async function checkAuth() {
+    const user = await getUser();
+    if (!user) {
+        location.replace('/');
+        console.log(user);
+    }
+}
 
 export async function redirectIfLoggedIn() {
     if (await getUser()) {
